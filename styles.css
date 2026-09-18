@@ -30,13 +30,13 @@ h1 {
 }
 
 .img-container {
-  width: 110px;
+  width: 60px;
   position: relative;
 }
 
 .img-container img {
-  width: 110px;
-  height: 110px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
@@ -48,6 +48,46 @@ h1 {
 
 .music-container.play .img-container img {
   animation-play-state: running;
+}
+
+.menu, .now-playing {
+  display: none;
+  height: 100%;
+}
+
+.menu.active, .now-playing.active {
+  display: block;
+}
+
+.menu h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 5px 0;
+  color: #555;
+}
+
+.menu li.selected {
+  background: #333;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.now-playing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
 }
 
 @keyframes rotate {

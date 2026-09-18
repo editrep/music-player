@@ -9,8 +9,12 @@ const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
+const songList = document.querySelectorAll('#song-list li');
+const menu = document.getElementById('menu');
+const nowPlaying = document.getElementById('now-playing');
+const nowTitle = document.getElementById('now-title');
 
-const songs = ['hey', 'summer', 'calmingSynthWaves'];
+const songs = ['staticMelodyKeys', 'sequenceTakeoff', 'calmingSynthWaves'];
 let songIndex = 2;
 
 function loadSong(song) {
@@ -20,6 +24,26 @@ function loadSong(song) {
 }
 
 loadSong(songs[songIndex]);
+
+function updateSelected(index) {
+  songList.forEach((li, i) => {
+    li.classList.toggle('selected', i === index);
+  });
+}
+
+//shows menu when menu button is clicked
+function showMenu() {
+  menu.classList.add('active');
+  nowPlaying.classList.remove('active');
+}
+
+function showNowPlaying() {
+  menu.classList.remove('active');
+  nowPlaying.classList.add('active');
+}
+
+document.getElementById('menu-btn').addEventListener('click', showMenu);
+
 
 //add play or pause controls
 function playSong() {
@@ -79,3 +103,15 @@ progressContainer.addEventListener('click', setProgress);
 
 //auto play next song when current song ends
 audio.addEventListener('ended', nextSong);
+
+document.addEventListener('keydown', (e) => {
+  if (menu.classList.contains('active')) {
+    if (e.key === 'ArrowUp') {
+      currentSong = (currentSong - 1 + songs.length) % songs.length;
+      updateSelected(currentSong);
+    } else if (e.key === 'ArrowDown') {
+      currentSong = (currentSong + 1) % songs.length;
+      updateSelected(currentSong);
+    }
+  }
+});

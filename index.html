@@ -10,7 +10,14 @@
 </head>
 <body>
 
-  <h1>Music Player</h1>
+  <div class="menu" id="menu">
+        <h3>Music Player</h3>
+        <ul id="song-list">
+          <li class="selected">Calming Synth Waves - Edith Downey</li>
+          <li>Sequence Takeoff - Edith Downey</li>
+          <li>Static Melody Keys - Edith Downey</li>
+        </ul>
+      </div>
 
   <div class="music-container" id="music-container">
     <div class="music-info">
@@ -20,16 +27,18 @@
       </div>
     </div>
 
-    <audio id="audio" src="music/ukulele.mp3"></audio>
+    <audio id="audio" src="music/calmingSynthWaves.mp3"></audio>
 
-    <div class="img-container">
-      <img src="images/ukulele.jpg" alt="Album Cover" id="cover" />
-    </div>
 
     <div class="navigation">
       <button id="prev" class="action-btn"><i class="fas fa-backward"></i></button>
       <button id="play" class="action-btn action-btn-big"><i class="fas fa-play"></i></button>
       <button id="next" class="action-btn"><i class="fas fa-forward"></i></button>
+      <button id="menu-btn" class="action-btn"><i class="fas fa-bars"></i></button>
+    </div>
+    
+    <div class="img-container">
+      <img src="images/calmingSynthWaves.jpg" alt="Album Cover" id="cover" />
     </div>
   </div>
 </body>
