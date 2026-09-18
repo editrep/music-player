@@ -10,7 +10,7 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const songs = ['hey', 'summer', 'ukulele'];
+const songs = ['hey', 'summer', 'calmingSynthWaves'];
 let songIndex = 2;
 
 function loadSong(song) {
@@ -36,7 +36,11 @@ function pauseSong() {
 
 playBtn.addEventListener('click', () => {
   const isPlaying = musicContainer.classList.contains('play');
-  isPlaying ? pauseSong() : playSong();
+  if (isPlaying) {
+    pauseSong();
+  } else {
+    playSong();
+  }
 });
 
 //add next and previous logic
